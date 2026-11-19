@@ -118,13 +118,21 @@ Hi3D Export-ox
       └─ 📂 ComfyUI-Hi3D-OreX/
    ```
 
-2. Установите зависимости в окружение именно вашей сборки ComfyUI:
+2. Для **Portable ComfyUI на Windows** запустите двойным щелчком:
+
+   ```text
+   Install.bat
+   ```
+
+   Установщик использует только `python_embeded` этой portable-сборки, определяет CUDA из установленного PyTorch и ставит совместимые `cumm`/`spconv` для `cu126`, `cu128` или `cu130`. Сам PyTorch он не устанавливает и не заменяет.
+
+   Для ручной установки обычных Python-зависимостей:
 
    ```bash
    python -m pip install -r requirements.txt
    ```
 
-3. Нужны совместимые с PyTorch/CUDA сборки `spconv`, `cumm`, `flash-attn` и Triton. Не заменяйте PyTorch из готовой portable-сборки ComfyUI.
+3. Для работы также нужны `flash-attn` и Triton, которые обычно уже устанавливаются вместе с TRELLIS.2. Не заменяйте PyTorch из готовой portable-сборки ComfyUI.
 
 4. Полностью перезапустите ComfyUI.
 
@@ -277,13 +285,21 @@ Feed Hi3D from the base 512 shape latent before `Trellis2 Upsample Stage`. Do no
 ### 📥 Installation
 
 1. Copy the pack into `ComfyUI/custom_nodes/ComfyUI-Hi3D-OreX/`.
-2. Install dependencies in the Python environment used by that ComfyUI installation:
+2. On **Portable ComfyUI for Windows**, double-click:
+
+   ```text
+   Install.bat
+   ```
+
+   The installer uses only that portable build's `python_embeded`, detects CUDA from its installed PyTorch, and installs matching `cumm`/`spconv` packages for `cu126`, `cu128`, or `cu130`. It does not install or replace PyTorch.
+
+   To install the regular Python requirements manually:
 
    ```bash
    python -m pip install -r requirements.txt
    ```
 
-3. Compatible `spconv`, `cumm`, `flash-attn`, and Triton builds matching PyTorch/CUDA are also required. Do not replace the PyTorch bundled with a portable ComfyUI build.
+3. `flash-attn` and Triton are also required and are normally installed with TRELLIS.2. Do not replace the PyTorch bundled with a portable ComfyUI build.
 4. Fully restart ComfyUI.
 
 ### 🧠 Models
